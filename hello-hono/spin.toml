@@ -1,0 +1,18 @@
+spin_manifest_version = 2
+
+[application]
+authors = ["syumai <syumai@gmail.com>"]
+description = ""
+name = "hello-hono"
+version = "0.1.0"
+
+[[trigger.http]]
+route = "/..."
+component = "hello-hono"
+
+[component.hello-hono]
+source = "dist/hello-hono.wasm"
+exclude_files = ["**/node_modules"]
+[component.hello-hono.build]
+command = ["npm install", "npm run build"]
+watch = ["src/**/*.ts"]
